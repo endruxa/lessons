@@ -11,12 +11,16 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');*/
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
 Route::get('/', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show')->name('post');
 
-Route::get('send', 'MailController@send');
+Route::get('/send', 'MailController@send');
 /*Route::get('/users/{id}', function () {
    //return \App\User::findOrFail($id);
     //return DB::table('users')->get();
@@ -24,7 +28,7 @@ Route::get('send', 'MailController@send');
     return view('user', compact('users'));
 });*/
 
-/*Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('');*/
+Route::get('');

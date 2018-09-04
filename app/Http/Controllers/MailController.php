@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
-
+use App\Mail\newMail;
 class MailController extends Controller
 {
     public function send()
     {
-        Mail::send(['text' => 'mail'], ['name', 'andrey'], function($message){
-            $message->to('nesterov.andrey.a@yandex.ru', 'Hello')->subject('Test email');
-            $message->from('nesterov.andrey.a@yandex.ru', 'Hello user');
-        });
+        Mail::send(new newMail());
     }
+
+    public function email()
+    {
+        return view('email');
+    }
+
 }
