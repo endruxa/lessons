@@ -18,11 +18,11 @@ use Illuminate\Http\Request;
 
 Auth::routes();
 
-/*Route::get('/', 'PostsController@index');
+//Route::get('/', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show')->name('post');
 
-Route::get('/send', 'MailController@send');*/
-/*Route::get('/users/{id}', function () {
+/*Route::get('/send', 'MailController@send');
+Route::get('/users/{id}', function () {
    //return \App\User::findOrFail($id);
     //return DB::table('users')->get();
     $users = \App\User::all();
@@ -40,11 +40,13 @@ Route::get('/', function () {
 
 
 Route::post('/task', function (Request $request) {
+
     $validator = Validator::make($request->all(),
         [
-            'name' => 'required|max:255'
+            'name' => 'required|min:2|max:255'
         ]);
     if ($validator->fails()) {
+        $request->flash();
         return redirect('/')->withInput()->withErrors($validator);
     }
     $task = new \App\Task;

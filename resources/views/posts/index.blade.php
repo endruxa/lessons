@@ -17,6 +17,7 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-4">
+                {{dd($post)}}
                     @foreach($posts as $post)
                     <h2>{{$post->title}}</h2>
                     <p>{{$post->body}}</p>
